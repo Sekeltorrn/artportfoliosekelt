@@ -1,38 +1,12 @@
 {
-  "version": 2,
   "cleanUrls": true,
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/public/assets/$1"
-    },
-    {
-      "src": "/css/(.*)",
-      "dest": "/src/css/$1"
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/src/js/$1"
-    },
-    {
-      "src": "/admin/(.*)",
-      "dest": "/src/views/admin/$1.html"
-    },
-    {
-      "src": "/admin",
-      "dest": "/src/views/admin/dashboard.html"
-    },
-    {
-      "src": "/commission-order",
-      "dest": "/src/views/public/commission-order.html"
-    },
-    {
-      "src": "/",
-      "dest": "/src/views/public/index.html"
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/src/views/public/index.html" },
+    { "source": "/commission", "destination": "/src/views/public/commission-order.html" },
+    { "source": "/admin/login", "destination": "/src/views/admin/login.html" },
+    { "source": "/admin/dashboard", "destination": "/src/views/admin/dashboard.html" },
+    { "source": "/admin/designer", "destination": "/src/views/admin/designer.html" },
+    { "source": "/admin/preview", "destination": "/src/views/admin/preview.html" },
+    { "source": "/admin/settings", "destination": "/src/views/admin/settings.html" }
   ]
 }
