@@ -5,23 +5,6 @@
  *   Styles the administrative back-office portal (login, dashboard, website designer,
  *   settings, order management). Emphasizes clean UI density, visual hierarchy, dashboard
  *   widgets, form controls, and theme editor toolbars.
- * 
- * Key Components to Style:
- *   1. Admin Layout & Sidebar:
- *      - Fixed/collapsible left sidebar navigation with active indicator bars.
- *      - Top app bar with user profile dropdown, notification bell, and quick stats.
- * 
- *   2. Dashboard Widgets & Data Tables:
- *      - Metric cards with trend indicators and iconography.
- *      - Sortable responsive commission orders table with status badges (e.g., Pending, In Progress, Delivered).
- *      - Action toolbars (filtering, search, batch status toggles).
- * 
- *   3. Live Website Designer Studio:
- *      - Split-pane layout: Controls sidebar on the left, live preview iframe on the right.
- *      - Color pickers, typography switches, layout toggle buttons, live style injector.
- * 
- *   4. Form Controls & Dialogs:
- *      - Polished input fields, file upload drops, toggle switches, and modal confirmations.
  */
 
 /* ==========================================================================
@@ -31,19 +14,24 @@
   --admin-sidebar-width: 260px;
   --admin-header-height: 64px;
   
-  --admin-bg-page: #0f172a;
-  --admin-bg-sidebar: #090d16;
-  --admin-bg-card: #1e293b;
-  --admin-bg-card-hover: #243247;
-  --admin-border-color: #334155;
+  --admin-bg-page: #0b0f19;
+  --admin-bg-sidebar: #070a12;
+  --admin-bg-card: rgba(17, 24, 39, 0.75);
+  --admin-bg-card-hover: rgba(30, 41, 59, 0.85);
+  --admin-bg-input: rgba(15, 23, 42, 0.65);
+  --admin-border-color: rgba(255, 255, 255, 0.1);
+  --admin-border-focus: #6366f1;
   
-  --admin-primary: #3b82f6;
-  --admin-primary-hover: #2563eb;
+  --admin-primary: #6366f1;
+  --admin-primary-hover: #4f46e5;
   --admin-text-title: #f8fafc;
   --admin-text-body: #cbd5e1;
-  --admin-text-subtle: #64748b;
+  --admin-text-subtle: #94a3b8;
   
-  /* Status Badges */
+  /* Status & Alerts */
+  --status-error-bg: rgba(239, 68, 68, 0.12);
+  --status-error-border: rgba(239, 68, 68, 0.35);
+  --status-error-text: #fca5a5;
   --status-pending-bg: rgba(234, 179, 8, 0.15);
   --status-pending-text: #facc15;
   --status-active-bg: rgba(59, 130, 246, 0.15);
@@ -55,4 +43,266 @@
 body.admin-body {
   background-color: var(--admin-bg-page);
   color: var(--admin-text-body);
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Authentication & Login View
+   ========================================================================== */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
+    #0b0f19;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--admin-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--admin-border-color);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 10;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.4);
+}
+
+.auth-logo-badge svg {
+  width: 28px;
+  height: 28px;
+}
+
+.auth-title {
+  color: var(--admin-text-title);
+  font-size: 1.625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+  color: var(--admin-text-subtle);
+  font-size: 0.9rem;
+}
+
+/* Alert Container */
+.auth-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  animation: alertFadeIn 200ms ease;
+}
+
+.auth-alert.error {
+  background: var(--status-error-bg);
+  border: 1px solid var(--status-error-border);
+  color: var(--status-error-text);
+}
+
+.auth-alert-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+@keyframes alertFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Styles */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-label {
+  color: var(--admin-text-title);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--admin-text-subtle);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.65rem;
+  background: var(--admin-bg-input);
+  border: 1px solid var(--admin-border-color);
+  border-radius: 10px;
+  color: var(--admin-text-title);
+  font-size: 0.925rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input::placeholder {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+.form-input:focus {
+  border-color: var(--admin-border-focus);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--admin-text-subtle);
+}
+
+.remember-me {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+  accent-color: var(--admin-primary);
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+}
+
+/* Submit Button & Spinner */
+.btn-submit {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -4px rgba(99, 102, 241, 0.5);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--admin-border-color);
+  font-size: 0.85rem;
+  color: var(--admin-text-subtle);
+}
+
+.auth-link {
+  color: var(--admin-text-body);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color var(--transition-fast);
+}
+
+.auth-link:hover {
+  color: var(--admin-primary);
+}
+
+.hidden {
+  display: none !important;
 }
