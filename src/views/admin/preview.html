@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Portfolio Preview</title>
+
+  <!-- Global & Public Stylesheets (Mirroring public index.html for preview accuracy) -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/public-theme.css">
+  <style>
+    /* Preview Banner Bar */
+    .preview-mode-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body class="public-theme">
+  <!-- 
+    ==========================================================================
+    LIVE PREVIEW VIEW: preview.html
+    
+    Purpose:
+    - Serves as the real-time target loaded inside the designer.html iframe.
+    - Also viewable directly as a full-page preview before pushing changes live.
+    - Listens for window 'message' events sent from designer.html to dynamically
+      update CSS custom properties (--color-primary, --font-family, layout classes)
+      without triggering a full page reload.
+    
+    Architecture:
+    1. Mirrors the public portfolio structure (Hero, Gallery, Commission Status).
+    2. Embedded script listens to parent postMessage payloads:
+       window.addEventListener('message', (event) => {
+         applyThemeOverrides(event.data);
+       });
+    ==========================================================================
+  -->
+
+  <div class="preview-mode-bar">
+    Live Theme Preview Mode — Changes reflect instantly
+  </div>
+
+  <div id="preview-portfolio-root">
+    <!-- Mirrored preview content structure -->
+    <header id="preview-header"></header>
+    <main id="preview-main"></main>
+  </div>
+
+  <!-- Real-time theme listener script -->
+  <script>
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'THEME_UPDATE') {
+        console.log('[Preview] Theme update received:', event.data.theme);
+        // Dynamic CSS variables will be applied here in Phase 1
+      }
+    });
+  </script>
+</body>
+</html>

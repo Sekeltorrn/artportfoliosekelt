@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Designer | Visual Customizer</title>
+
+  <!-- Global & Admin Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/admin-theme.css">
+</head>
+<body class="admin-body">
+  <!-- 
+    ==========================================================================
+    WEBSITE DESIGNER STUDIO: designer.html
+    
+    Layout Architecture & Intended Structure:
+    1. App Shell Layout with Split-Screen Designer Workspace:
+       - Left Sidebar: Global Navigation (Dashboard, Designer, Preview, Settings)
+       - Center Column: Theme Customization Controls Drawer (<aside id="designer-controls">)
+       - Right Area: Live Interactive Preview Viewport (<div id="preview-viewport-container">)
+    
+    2. Theme Customization Controls:
+       - Tab 1: Color Palette (Primary brand color, accent color, background tone, surface tint)
+       - Tab 2: Typography & Header (Heading font, body font, hero title text, subtitle, bio)
+       - Tab 3: Artwork Gallery Layout (Masonry, Uniform Grid, Single-column feed)
+       - Tab 4: Hero Banner & Branding (Upload hero image banner, logo asset, badge text)
+    
+    3. Action Toolbar:
+       - Device Viewport Switcher (Desktop, Tablet, Mobile frame modes)
+       - "Discard Changes", "Save Draft", and "Publish to Live" buttons
+    
+    4. Integration:
+       - Talks to /api/admin/website-designer.js
+       - Posts real-time messages to embedded preview iframe via postMessage
+    ==========================================================================
+  -->
+
+  <div class="admin-layout">
+    <!-- Sidebar Navigation -->
+    <aside id="admin-sidebar"></aside>
+
+    <!-- Designer Studio Workspace -->
+    <div class="designer-workspace">
+      <!-- Controls Panel -->
+      <section id="designer-controls-panel">
+        <header class="designer-header">
+          <h2>Website Designer</h2>
+          <p>Customize your portfolio colors, hero text, and gallery layout</p>
+        </header>
+
+        <!-- Controls Form -->
+        <div id="theme-controls-container"></div>
+
+        <!-- Action bar -->
+        <footer class="designer-footer-actions">
+          <button id="save-draft-btn" class="btn btn-secondary">Save Draft</button>
+          <button id="publish-theme-btn" class="btn btn-primary">Publish to Live</button>
+        </footer>
+      </section>
+
+      <!-- Live Preview Frame Container -->
+      <section id="designer-preview-panel">
+        <div class="viewport-toolbar">
+          <!-- Desktop / Tablet / Mobile toggle buttons -->
+        </div>
+        <div class="iframe-container">
+          <!-- Embedded preview target pointing to preview.html -->
+          <iframe id="theme-preview-iframe" src="/admin/preview.html" title="Portfolio Live Preview"></iframe>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/admin/auth-client.js"></script>
+  <script type="module" src="/js/admin/sidebar-navigation.js"></script>
+</body>
+</html>

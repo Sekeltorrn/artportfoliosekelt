@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Art Management Portal</title>
+
+  <!-- Global & Admin Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/admin-theme.css">
+</head>
+<body class="admin-body">
+  <!-- 
+    ==========================================================================
+    ADMIN LOGIN: login.html
+    
+    Layout Architecture & Intended Structure:
+    1. Centered Auth Card:
+       - Studio/Artist branding logo
+       - Heading: "Admin Portal Sign In"
+       - Subtitle: "Enter your credentials to manage commissions and portfolio"
+    
+    2. Login Form (#login-form):
+       - Username / Email field with icon
+       - Password field with show/hide toggle
+       - "Remember this session" checkbox
+       - Submit button ("Sign In") with loading spinner state
+       - Error alert banner for invalid credentials or locked account
+    
+    3. Security & Return Links:
+       - Link back to public portfolio
+    ==========================================================================
+  -->
+
+  <main class="auth-container">
+    <div class="auth-card" id="admin-login-card">
+      <div class="auth-header">
+        <h1>Artist Studio Admin</h1>
+        <p>Please authenticate to access the studio control panel</p>
+      </div>
+
+      <form id="admin-login-form">
+        <!-- Input fields will be implemented in Phase 1 -->
+      </form>
+
+      <div id="auth-error-message" class="hidden" role="alert"></div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/admin/auth-client.js"></script>
+</body>
+</html>

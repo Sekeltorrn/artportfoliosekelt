@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a custom artwork commission. Calculate real-time pricing estimates, specify art preferences, and upload references.">
+  <title>Commission Order Request | Art Portal</title>
+
+  <!-- Global & Public Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/public-theme.css">
+</head>
+<body class="public-theme">
+  <!-- 
+    ==========================================================================
+    PUBLIC COMMISSION ORDER: commission-order.html
+    
+    Layout Architecture & Intended Structure:
+    1. Header & Back Navigation:
+       - Link back to portfolio home (index.html)
+       - Real-time commission slot counter badge (e.g., "2 slots remaining")
+    
+    2. Commission Booking Form (#commission-form):
+       - Step 1: Artwork Type Selection (Portrait, Half-Body, Full Illustration)
+       - Step 2: Details & Scope (Number of characters, background complexity, commercial license toggle)
+       - Step 3: Reference Materials & Uploads (Drag-and-drop dropzone for image references)
+       - Step 4: Client Information (Name, Contact Email, Discord/Twitter handle for communication)
+       - Step 5: Terms of Service Agreement checkbox
+    
+    3. Sticky Quote Summary Sidebar:
+       - Dynamic price calculation based on selected tier + addons
+       - Estimated turnaround timeline display
+       - Submit Request button triggering POST /api/commissions/create-request.js
+    
+    4. Confirmation / Success Screen:
+       - Displays assigned Order ID, summary breakdown, and next contact steps
+    ==========================================================================
+  -->
+
+  <header id="site-header">
+    <!-- Header with back navigation -->
+  </header>
+
+  <main class="container">
+    <div id="commission-booking-wrapper">
+      <!-- Multi-step form and pricing preview sidebar -->
+      <form id="commission-order-form">
+        <!-- Form inputs will be implemented in Phase 2 -->
+      </form>
+      <aside id="price-summary-sidebar">
+        <!-- Live quote estimate display -->
+      </aside>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/public/commission-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Settings | Configuration</title>
+
+  <!-- Global & Admin Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/admin-theme.css">
+</head>
+<body class="admin-body">
+  <!-- 
+    ==========================================================================
+    STUDIO SETTINGS: settings.html
+    
+    Layout Architecture & Intended Structure:
+    1. App Shell Layout:
+       - Sidebar Navigation (<aside id="admin-sidebar">)
+       - Settings Content Container (<main class="admin-container">)
+    
+    2. Settings Sections & Form Controls (#settings-form):
+       - Section 1: General Profile & Studio Info
+         * Artist Name / Studio Brand
+         * Primary Contact & Notification Email
+         * Bio and Social Handles (X, Instagram, ArtStation, Discord)
+       
+       - Section 2: Commission Availability & Slot Management
+         * Global Commission Status Toggle (Open / Closed)
+         * Max Concurrent Open Slots (number input)
+         * Waitlist queue toggle (Allow inquiries when slots are full)
+       
+       - Section 3: Pricing & Commercial Terms
+         * Currency selector (USD, EUR, GBP, JPY)
+         * Standard Terms of Service markdown editor / textarea
+         * Payment policy details (e.g., 50% upfront, 50% upon delivery)
+       
+       - Section 4: Security & Account
+         * Change Admin Password
+         * Active session invalidation
+    
+    3. Action Bar:
+       - "Save Settings" button with status toast notifications
+       - Interacts with GET and PUT /api/admin/site-settings.js
+    ==========================================================================
+  -->
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside id="admin-sidebar"></aside>
+
+    <div class="admin-main-content">
+      <header id="admin-topbar">
+        <h2>Studio Settings</h2>
+      </header>
+
+      <main class="admin-container">
+        <form id="site-settings-form">
+          <!-- Form fields will be populated in Phase 1 -->
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/admin/auth-client.js"></script>
+  <script type="module" src="/js/admin/sidebar-navigation.js"></script>
+</body>
+</html>

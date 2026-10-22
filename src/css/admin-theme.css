@@ -1,0 +1,58 @@
+/**
+ * STYLESHEET: src/css/admin-theme.css
+ * 
+ * Purpose:
+ *   Styles the administrative back-office portal (login, dashboard, website designer,
+ *   settings, order management). Emphasizes clean UI density, visual hierarchy, dashboard
+ *   widgets, form controls, and theme editor toolbars.
+ * 
+ * Key Components to Style:
+ *   1. Admin Layout & Sidebar:
+ *      - Fixed/collapsible left sidebar navigation with active indicator bars.
+ *      - Top app bar with user profile dropdown, notification bell, and quick stats.
+ * 
+ *   2. Dashboard Widgets & Data Tables:
+ *      - Metric cards with trend indicators and iconography.
+ *      - Sortable responsive commission orders table with status badges (e.g., Pending, In Progress, Delivered).
+ *      - Action toolbars (filtering, search, batch status toggles).
+ * 
+ *   3. Live Website Designer Studio:
+ *      - Split-pane layout: Controls sidebar on the left, live preview iframe on the right.
+ *      - Color pickers, typography switches, layout toggle buttons, live style injector.
+ * 
+ *   4. Form Controls & Dialogs:
+ *      - Polished input fields, file upload drops, toggle switches, and modal confirmations.
+ */
+
+/* ==========================================================================
+   Admin Theme Variables
+   ========================================================================== */
+:root {
+  --admin-sidebar-width: 260px;
+  --admin-header-height: 64px;
+  
+  --admin-bg-page: #0f172a;
+  --admin-bg-sidebar: #090d16;
+  --admin-bg-card: #1e293b;
+  --admin-bg-card-hover: #243247;
+  --admin-border-color: #334155;
+  
+  --admin-primary: #3b82f6;
+  --admin-primary-hover: #2563eb;
+  --admin-text-title: #f8fafc;
+  --admin-text-body: #cbd5e1;
+  --admin-text-subtle: #64748b;
+  
+  /* Status Badges */
+  --status-pending-bg: rgba(234, 179, 8, 0.15);
+  --status-pending-text: #facc15;
+  --status-active-bg: rgba(59, 130, 246, 0.15);
+  --status-active-text: #60a5fa;
+  --status-completed-bg: rgba(34, 197, 94, 0.15);
+  --status-completed-text: #4ade80;
+}
+
+body.admin-body {
+  background-color: var(--admin-bg-page);
+  color: var(--admin-text-body);
+}

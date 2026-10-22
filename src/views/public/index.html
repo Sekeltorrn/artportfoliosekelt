@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official portfolio and commission portal of the artist. Explore original artwork, character illustrations, and book custom art commissions.">
+  <title>Artist Portfolio & Gallery</title>
+
+  <!-- Global & Public Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/public-theme.css">
+</head>
+<body class="public-theme">
+  <!-- 
+    ==========================================================================
+    PUBLIC PORTFOLIO: index.html
+    
+    Layout Architecture & Intended Structure:
+    1. Navigation Header:
+       - Brand logo/Artist name
+       - Category navigation links (Portfolio, About, Commission Info, Contact)
+       - Commission Status Pill ("● Commissions Open" / "○ Full")
+       - Direct CTA: "Order Commission" button -> links to /views/public/commission-order.html
+    
+    2. Hero Showcase Section:
+       - Artist headline and specialty introduction
+       - Featured artwork backdrop or hero slideshow
+       - Social media links (ArtStation, X/Twitter, Instagram)
+
+    3. Interactive Portfolio Gallery:
+       - Category filter tabs (All, Digital, Traditional, Character Concept, Environment)
+       - Masonry/Grid Artwork Container (#portfolio-gallery-container)
+       - Lightbox Modal Trigger on click
+    
+    4. Artist Bio & Commission Guidelines Preview:
+       - Brief artist bio, workflow description, and turnaround times
+       - Quick FAQ on licensing and payment terms
+    
+    5. Footer:
+       - Copyright notice, terms link, and subtle admin login link
+    ==========================================================================
+  -->
+
+  <header id="site-header">
+    <!-- Header navigation will be implemented in Phase 2 -->
+  </header>
+
+  <main id="main-content">
+    <section id="hero-section">
+      <!-- Hero introduction and featured artwork -->
+    </section>
+
+    <section id="portfolio-section">
+      <!-- Dynamic artwork gallery with category filtering -->
+      <div id="gallery-container"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <!-- Footer credits and links -->
+  </footer>
+
+  <!-- Lightbox Modal Container -->
+  <div id="lightbox-modal" class="hidden" role="dialog" aria-hidden="true">
+    <!-- Fullscreen artwork preview target -->
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/public/portfolio-gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/**
+ * STYLESHEET: src/css/public-theme.css
+ * 
+ * Purpose:
+ *   Visual presentation layer for the public portfolio showcase and client commission
+ *   portal. Employs modern aesthetics (dark mode by default, glassmorphism, glowing accents,
+ *   smooth image gallery transitions).
+ * 
+ * Key Components to Style:
+ *   1. Public Navigation & Branding:
+ *      - Sticky glassmorphic navbar with backdrop-filter blur.
+ *      - Commission status badge ("Open for commissions" / "Slots Full").
+ * 
+ *   2. Hero Showcase:
+ *      - High-impact header introducing the artist, specialties, and call-to-actions.
+ *      - Dynamic hero background with optional animated subtle gradients.
+ * 
+ *   3. Portfolio Grid & Lightbox:
+ *      - Responsive Masonry / CSS Grid artwork display.
+ *      - Image hover overlays (artwork title, category tag, zoom icon).
+ *      - Fullscreen lightbox modal with backdrop blur, caption, and full-res preview.
+ * 
+ *   4. Commission Order Flow:
+ *      - Multi-step interactive pricing calculator and option cards.
+ *      - Drag-and-drop reference image uploader styling with preview thumbnails.
+ *      - Dynamic price summary floating sidebar or sticky footer.
+ */
+
+/* ==========================================================================
+   Public Theme Variables (Theme Customizer Targets)
+   ========================================================================== */
+:root {
+  --color-bg-public: #0b0f19;
+  --color-surface-public: #111827;
+  --color-surface-elevated: #1f2937;
+  --color-primary: #8b5cf6;
+  --color-primary-hover: #7c3aed;
+  --color-accent: #ec4899;
+  --color-text-main: #f9fafb;
+  --color-text-muted: #9ca3af;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+/* Base public styling rules to be expanded during Phase 2 */
+body.public-theme {
+  background-color: var(--color-bg-public);
+  color: var(--color-text-main);
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Studio Management</title>
+
+  <!-- Global & Admin Stylesheets -->
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/admin-theme.css">
+</head>
+<body class="admin-body">
+  <!-- 
+    ==========================================================================
+    ADMIN DASHBOARD: dashboard.html
+    
+    Layout Architecture & Intended Structure:
+    1. App Shell Layout:
+       - Left Sidebar Navigation (<aside id="admin-sidebar">):
+         * Brand logo
+         * Links: Dashboard (active), Website Designer, Live Preview, Settings
+         * Logout button at footer
+       - Main App Area (<div class="admin-main">):
+         * Top App Bar: Page title, active slots badge, admin profile button
+    
+    2. Metrics Overview Row:
+       - Metric Card 1: Active In-Progress Commissions
+       - Metric Card 2: Pending Inquiries / Unreviewed Requests
+       - Metric Card 3: Available Commission Slots
+       - Metric Card 4: Total Revenue (All-time / Current Month)
+    
+    3. Commission Requests Management Table:
+       - Search bar & status filter dropdown (All, Pending, In Progress, Completed)
+       - Data table columns: Client Name, Project Type, Submitted Date, Price, Status Badge, Quick Actions
+       - Action buttons: "Review / Details", "Change Status", "Message Client"
+    
+    4. Order Details Modal (#order-details-modal):
+       - Full specifications, uploaded reference thumbnails, and notes log
+    ==========================================================================
+  -->
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside id="admin-sidebar">
+      <!-- Navigation items handled by sidebar-navigation.js -->
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="admin-main-content">
+      <header id="admin-topbar">
+        <!-- Top bar with admin breadcrumbs, slot counter, profile -->
+      </header>
+
+      <main id="dashboard-content" class="admin-container">
+        <!-- Overview metric cards -->
+        <section id="metrics-grid"></section>
+
+        <!-- Commissions table -->
+        <section id="commissions-management"></section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/js/admin/auth-client.js"></script>
+  <script type="module" src="/js/admin/sidebar-navigation.js"></script>
+  <script type="module" src="/js/admin/dashboard.js"></script>
+</body>
+</html>
