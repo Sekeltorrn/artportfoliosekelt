@@ -4,9 +4,7 @@
   "description": "Custom modular art portfolio and commission management system deployed on Vercel.",
   "main": "api/auth/login.js",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "echo 'No custom build step required for static HTML/JS/CSS assets.'",
-    "start": "vercel dev"
+    "dev": "vercel dev"
   },
   "keywords": [
     "art-portfolio",
@@ -16,7 +14,6 @@
   ],
   "author": "",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "vercel": "^34.0.0"
   }
