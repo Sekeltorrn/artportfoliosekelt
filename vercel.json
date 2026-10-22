@@ -1,6 +1,5 @@
 {
   "cleanUrls": true,
-  "outputDirectory": ".",
   "rewrites": [
     { "source": "/", "destination": "/src/views/public/index.html" },
     { "source": "/commission", "destination": "/src/views/public/commission-order.html" },
