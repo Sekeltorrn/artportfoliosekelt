@@ -19,10 +19,9 @@
   <main class="auth-page" id="auth-main">
     <div class="auth-card" id="admin-login-card">
       
-      <!-- Brand & Header -->
+      <!-- Studio Header & Branding -->
       <div class="auth-header">
         <div class="auth-logo-badge" aria-hidden="true">
-          <!-- Palette / Studio Vector Icon -->
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
           </svg>
@@ -31,20 +30,15 @@
         <p class="auth-subtitle">Authenticate to access commissions and portfolio settings</p>
       </div>
 
-      <!-- Error Message Banner Container -->
-      <div id="auth-error-message" class="auth-alert error hidden" role="alert" aria-live="polite">
-        <svg class="auth-alert-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-        </svg>
-        <span id="auth-error-text">Invalid credentials. Please try again.</span>
-      </div>
+      <!-- Alert Banner for Errors (hidden by default) -->
+      <div id="error-message" class="hidden" role="alert" aria-live="polite"></div>
 
-      <!-- Login Form -->
+      <!-- Admin Login Form -->
       <form class="auth-form" id="admin-login-form" novalidate>
         
         <!-- Username or Email Field -->
         <div class="form-group">
-          <label class="form-label" for="login-username">Username or Email</label>
+          <label class="form-label" for="username">Username or Email</label>
           <div class="input-wrapper">
             <span class="input-icon" aria-hidden="true">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -53,10 +47,10 @@
             </span>
             <input 
               type="text" 
-              id="login-username" 
+              id="username" 
               name="username" 
               class="form-input" 
-              placeholder="admin@studio.art" 
+              placeholder="admin" 
               required 
               autocomplete="username" 
               autofocus
@@ -66,7 +60,7 @@
 
         <!-- Password Field -->
         <div class="form-group">
-          <label class="form-label" for="login-password">Password</label>
+          <label class="form-label" for="password">Password</label>
           <div class="input-wrapper">
             <span class="input-icon" aria-hidden="true">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +69,7 @@
             </span>
             <input 
               type="password" 
-              id="login-password" 
+              id="password" 
               name="password" 
               class="form-input" 
               placeholder="••••••••••••" 
@@ -85,18 +79,10 @@
           </div>
         </div>
 
-        <!-- Form Utilities -->
-        <div class="form-actions">
-          <label class="remember-me">
-            <input type="checkbox" id="remember-session" name="remember">
-            <span>Remember session</span>
-          </label>
-        </div>
-
-        <!-- Submit Button with Loading Spinner State -->
-        <button type="submit" id="login-submit-btn" class="btn-submit">
+        <!-- Submit Button with Spinner -->
+        <button type="submit" id="login-btn" class="btn-submit">
           <span class="spinner hidden" id="login-spinner" aria-hidden="true"></span>
-          <span id="login-btn-text">Sign In to Dashboard</span>
+          <span id="login-btn-text">Sign In</span>
         </button>
 
       </form>

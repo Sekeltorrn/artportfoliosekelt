@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Custom modular art portfolio and commission management system deployed on Vercel.",
   "main": "api/auth/login.js",
+  "type": "module",
   "scripts": {
     "dev": "vercel dev"
   },
